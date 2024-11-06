@@ -1,0 +1,38 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "jdoe",
+      "password": "password123",
+      "name": "John Doe",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "username": "asmith",
+      "password": "password456",
+      "name": "Alice Smith",
+      "role": "user"
+    }
+  ],
+  "items": [
+    {
+      "id": 1,
+      "name": "Laptop",
+      "quantity": 10,
+      "serialNumber": "LTP123456",
+      "category": "Electronics",
+      "lastUpdateDate": "2024-11-01",
+      "movement": "Ingreso"
+    },
+    {
+      "id": 2,
+      "name": "Mouse",
+      "quantity": 50,
+      "serialNumber": "MOU654321",
+      "category": "Accessories",
+      "lastUpdateDate": "2024-10-25",
+      "movement": "Salida"
+    }
+  ]
+}
