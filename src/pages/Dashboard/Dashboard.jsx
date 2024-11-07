@@ -1,11 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Table } from "./components/Table";
 import useFetch from '../../hooks/useFetch';
 import { Modal } from "../../components/Modal/Modal";
 import { Button } from "../../components/button/Button";
-import { useState } from "react";
 import { Input } from "../../components/input/Input";
-import { useEffect } from "react";
 
 
 
@@ -19,7 +17,13 @@ export const Dashboard = () => {
     category: "",
     lastupd: "",
   })
-  const {data, error, isLoading} = useFetch('http://localhost:3000/items');
+  const {data, error, isLoading, get, post, put, del}  = useFetch('http://localhost:3000/');
+
+  useEffect(() => {
+    get('items')
+  }, [])
+  
+  
 
   const addNewItem = () => {
     setIsActive(true);
@@ -27,8 +31,12 @@ export const Dashboard = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    post('items', formData)
+    setIsActive(false);
+    
   }
+
+  
 
   const handleChange = (e) => {
     setFormData( {
@@ -36,25 +44,20 @@ export const Dashboard = () => {
     });
   }
 
-  useEffect(() => {
-    console.log(formData)
-  }, [formData])
-  
 
   return isLoading? (<p>Cargando...</p>) : (
   <div>
     <Button action={() => addNewItem()} txt="Añadir" type="button"/>
     <Table data={data}/>
     <Modal active={isActive} onClose={setIsActive}> 
-      <form onSubmit={event => handleSubmit(event)}>
+      <form onSubmit={handleSubmit}>
         <Input txt="Nombre..." type="text" name="name" value={formData.name} onChange={handleChange}/> <br />
         <Input txt="Cantidad..." type="number" name="quantity" value={formData.quantity} onChange={handleChange}/><br />
         <Input txt="Núm. Serie..." type="text" name="serialnum" value={formData.serialnum} onChange={handleChange}/><br />
         <Input txt="Categoría..." type="text" name="category" value={formData.category} onChange={handleChange}/><br />
         <Input txt="Ult. Actualización..." type="date" name="lastupd" value={formData.lastupd} onChange={handleChange}/><br />
-
-        <Button type="submit" txt="Crear"></Button>
-
+        <Button type="submit" txt="Crear" action={() => {}}/>
+        
       </form>
       
     </Modal>

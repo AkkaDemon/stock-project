@@ -1,14 +1,14 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "username": "jdoe",
       "password": "password123",
       "name": "John Doe",
       "role": "admin"
     },
     {
-      "id": 2,
+      "id": "2",
       "username": "asmith",
       "password": "password456",
       "name": "Alice Smith",
@@ -17,7 +17,7 @@
   ],
   "items": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Laptop",
       "quantity": 10,
       "serialNumber": "LTP123456",
@@ -26,13 +26,21 @@
       "movement": "Ingreso"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Mouse",
       "quantity": 50,
       "serialNumber": "MOU654321",
       "category": "Accessories",
       "lastUpdateDate": "2024-10-25",
       "movement": "Salida"
+    },
+    {
+      "id": "e711",
+      "name": "Keyboard",
+      "quantity": "21",
+      "serialnum": "MKD485293",
+      "category": "Electronics",
+      "lastupd": "2024-11-07"
     }
   ]
 }
